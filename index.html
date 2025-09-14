@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armin Foroughi - Informatikstudent & Cybersecurity Analyst</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 50%, #3498db 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="cyber" patternUnits="userSpaceOnUse" width="20" height="20"><rect width="20" height="20" fill="none"/><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="5" cy="5" r="0.5" fill="rgba(52,152,219,0.2)"/><circle cx="15" cy="15" r="0.5" fill="rgba(52,152,219,0.2)"/></pattern></defs><rect width="100" height="100" fill="url(%23cyber)"/></svg>');
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(-20px) translateY(0px); }
+            50% { transform: translateX(0px) translateY(-10px); }
+            100% { transform: translateX(-20px) translateY(0px); }
+        }
+
+        .profile-section {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 4px solid rgba(255,255,255,0.3);
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #3498db;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+            color: #3498db;
+            font-weight: 500;
+        }
+
+        .header .status {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            background: rgba(52,152,219,0.2);
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .contact-link:hover {
+            background: rgba(52,152,219,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(52,152,219,0.4);
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1.2fr 2fr;
+            gap: 0;
+        }
+
+        .sidebar {
+            background: #f8fafc;
+            padding: 3rem 2rem;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .content {
+            background: white;
+            padding: 3rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .section h2 i {
+            color: #3498db;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 2px;
+        }
+
+        /* Student Status Banner */
+        .student-banner {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(52,152,219,0.3);
+        }
+
+        .student-banner h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .student-banner p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+            font-size: 1rem;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 4px;
+            animation: fillBar 2s ease-in-out;
+            position: relative;
+        }
+
+        .skill-progress::after {
+            content: attr(data-level);
+            position: absolute;
+            right: 8px;
+            top: -25px;
+            font-size: 0.8rem;
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        @keyframes fillBar {
+            from { width: 0; }
+        }
+
+        /* Experience */
+        .experience-item {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border-left: 5px solid #3498db;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 2rem;
+            width: 24px;
+            height: 24px;
+            background: #3498db;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px #3498db;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+
+        .company {
+            color: #3498db;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .duration {
+            background: #3498db;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .job-description {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .job-description ul {
+            margin-left: 1.2rem;
+            margin-top: 0.8rem;
+        }
+
+        .job-description li {
+            margin-bottom: 0.6rem;
+            position: relative;
+        }
+
+        .job-description li::marker {
+            color: #3498db;
+        }
+
+        /* Languages */
+        .languages-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .language-item {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .language-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .language-level {
+            font-size: 0.9rem;
+            color: #3498db;
+            font-weight: 600;
+            background: rgba(52,152,219,0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+        }
+
+        /* GitHub Section */
+        .github-section {
+            background: linear-gradient(135deg, #24292e, #1a1e22);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .github-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .github-section h2::after {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+
+        .github-link {
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .github-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.05);
+        }
+
+        .github-link i {
+            font-size: 1.8rem;
+        }
+
+        /* Career Goals Section */
+        .career-goals {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .career-goals h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .career-goals h2::after {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .goals-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+
+        .goals-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .goals-list li:last-child {
+            border-bottom: none;
+        }
+
+        .goals-list i {
+            margin-right: 0.8rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                padding: 3rem 1rem;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+
+            .container {
+                margin: 1rem;
+                border-radius: 15px;
+            }
+
+            .sidebar, .content {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-in-right {
+            animation: slideInRight 1s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Special highlight for current status */
+        .current-status {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header fade-in">
+            <div class="profile-section">
+                <div class="profile-img">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <h1>Armin Foroughi</h1>
+                <p class="subtitle">Informatikstudent & Cybersecurity Analyst</p>
+                <p class="status">🎓 6. Semester • 🔐 IT-Sicherheit & KI • 💼 Suche nach Karrieremöglichkeiten</p>
+                <div class="contact-links">
+                    <a href="mailto:arfgh2002@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>arfgh2002@gmail.com</span>
+                    </a>
+                    <a href="tel:+4949155633249190" class="contact-link">
+                        <i class="fas fa-phone"></i>
+                        <span>+49 491 556 332 4919</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/armin-foroughi" target="_blank" class="contact-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar slide-in-left">
+                <!-- Student Status -->
+                <div class="student-banner">
+                    <h3><i class="fas fa-graduation-cap"></i> Aktueller Status</h3>
+                    <p>Informatikstudent im 6. Semester mit praktischer Erfahrung in Cybersecurity</p>
+                </div>
+
+                <!-- Skills Section -->
+                <section class="section">
+                    <h2><i class="fas fa-code"></i> Technische Fähigkeiten</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-name">Python</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%" data-level="Sehr gut"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">SQL & Data Analysis</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%" data-level="Sehr gut"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Java</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%" data-level="Gut"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">C</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%" data-level="Gut"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Cybersecurity</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%" data-level="Sehr gut"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Big Data</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%" data-level="Gut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Languages Section -->
+                <section class="section">
+                    <h2><i class="fas fa-globe"></i> Sprachen</h2>
+                    <div class="languages-grid">
+                        <div class="language-item">
+                            <span class="language-name">Persisch</span>
+                            <span class="language-level">Muttersprache</span>
+                        </div>
+                        <div class="language-item">
+                            <span class="language-name">Deutsch</span>
+                            <span class="language-level">C1</span>
+                        </div>
+                        <div class="language-item">
+                            <span class="language-name">Englisch</span>
+                            <span class="language-level">C1</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Career Goals -->
+                <section class="career-goals">
+                    <h2><i class="fas fa-target"></i> Karriereziele</h2>
+                    <p style="margin-bottom: 1rem;">Ich suche nach Möglichkeiten, mein Wissen praktisch anzuwenden:</p>
+                    <ul class="goals-list">
+                        <li><i class="fas fa-briefcase"></i> Einstieg in IT-Sicherheit</li>
+                        <li><i class="fas fa-graduation-cap"></i> Praktika & Werkstudentenstellen</li>
+                        <li><i class="fas fa-project-diagram"></i> Herausfordernde IT-Projekte</li>
+                        <li><i class="fas fa-users"></i> Teamorientierte Arbeitsumgebung</li>
+                    </ul>
+                </section>
+
+                <!-- GitHub Section -->
+                <section class="github-section">
+                    <h2><i class="fab fa-github"></i> GitHub Portfolio</h2>
+                    <p>Entdecken Sie meine Projekte und Code-Beispiele aus Studium und Praxis.</p>
+                    <a href="https://github.com/armin-foroughi" target="_blank" class="github-link">
+                        <i class="fab fa-github"></i>
+                        <span>Projekte auf GitHub</span>
+                    </a>
+                </section>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="content slide-in-right">
+                <!-- About Section -->
+                <section class="section">
+                    <h2><i class="fas fa-user-circle"></i> Über mich</h2>
+                    <div class="current-status">
+                        <i class="fas fa-search"></i> Aktiv auf der Suche nach Karrieremöglichkeiten in der IT-Sicherheit
+                    </div>
+                    <p>Mein Name ist Armin Foroughi und ich bin Informatikstudent im 6. Semester mit Schwerpunkt IT-Sicherheit und Künstliche Intelligenz. Durch mein Studium sowie praktische Erfahrungen konnte ich tiefgehende Kenntnisse in Cyber Security, Data Analysis und Softwareentwicklung erwerben.</p>
+                    <br>
+                    <p>Meine Interessen liegen in den Bereichen Penetration Testing, Threat Intelligence und KI-gestützte Sicherheitslösungen. Ich suche nach Kontakt und Möglichkeiten, mein Wissen praktisch anzuwenden und mich in herausfordernden IT-Projekten weiterzuentwickeln.</p>
+                </section>
+
+                <!-- Experience Section -->
+                <section class="section">
+                    <h2><i class="fas fa-briefcase"></i> Praktische Erfahrung</h2>
+                    
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="job-title">Cyber Security Analyst</div>
+                                <div class="company">netsharqs cybersecurity, Bochum</div>
+                            </div>
+                            <div class="duration">Aktuell</div>
+                        </div>
+                        <div class="job-description">
+                            <ul>
+                                <li><strong>Netzwerk-Sicherheit:</strong> Beraten, Installieren, Konfigurieren und Inbetriebnahme von Netzwerk-Kommunikationsstärke und Securitylösungen</li>
+                                <li><strong>Malware-Schutz:</strong> Aktualisieren von Sicherheitsrichtlinien um Websites vor Malware und Cyber-Bedrohungen zu schützen</li>
+                                <li><strong>System-Monitoring:</strong> Überwachen und Analysieren von Systemen</li>
+                                <li><strong>Datenschutz:</strong> Stetiges Gewährleisten der Sicherheit und des Datenschutzes</li>
+                                <li><strong>Backup-Management:</strong> Erstellen von regelmäßigen Backups wichtiger Systemdaten</li>
+                                <li><strong>Prozess-Implementation:</strong> Selbstständiges Pflegen und Implementieren von IT-Sicherheitsprozessen</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="job-title">Data Analysis (SQL) Praktikant</div>
+                                <div class="company">Ruhr Universität Bochum</div>
+                            </div>
+                            <div class="duration">Apr. 2023 - Apr. 2024</div>
+                        </div>
+                        <div class="job-description">
+                            <ul>
+                                <li><strong>Big Data Analytics:</strong> Anwenden von Data-Mining-Lösungen unter Einsatz von Big-Data-Technologien und Analysetools</li>
+                                <li><strong>Data Warehouse:</strong> Aufbau von Data-Warehouse-Systemen und Evaluierung entsprechender Architekturen</li>
+                                <li><strong>System-Optimierung:</strong> Optimierung des Datenbankmangementsystems sowie Mitarbeit an der Migration von Data Warehouse-Systemen</li>
+                                <li><strong>Projektmanagement:</strong> Erstellen und Betreuen von Projektplänen und Data Studio Reports</li>
+                                <li><strong>Kundenkommunikation:</strong> Beantworten von Fragen und freundliches Kommunizieren mit den Kunden</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="job-title">Python Praktikant</div>
+                                <div class="company">Ruhr Universität Bochum</div>
+                            </div>
+                            <div class="duration">Apr. 2022 - Apr. 2023</div>
+                        </div>
+                        <div class="job-description">
+                            <ul>
+                                <li><strong>Teamarbeit:</strong> Aktives Mitarbeiten in verschiedenen Teams zur Entwicklung effektiver Teamarbeit</li>
+                                <li><strong>Continuous Learning:</strong> Engagiertes Erlernen und Sammeln neuer Kenntnisse und praktischer Erfahrungen</li>
+                                <li><strong>Projektunterstützung:</strong> Unterstützen bei der Planung und Umsetzung von Projekten</li>
+                                <li><strong>Database Management:</strong> Routiniertes Implementieren von Datenbanken und Datenverwaltungssystemen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Education Section -->
+                <section class="section">
+                    <h2><i class="fas fa-graduation-cap"></i> Ausbildung</h2>
+                    
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="job-title">Informatik Student (KI, IT-Sicherheit)</div>
+                                <div class="company">Ruhr Universität Bochum</div>
+                            </div>
+                            <div class="duration">6. Semester</div>
+                        </div>
+                        <div class="job-description">
+                            <p><strong>Schwerpunkte:</strong> Künstliche Intelligenz und IT-Sicherheit</p>
+                            <p><strong>Vertiefungsgebiete:</strong></p>
+                            <ul>
+                                <li>Cyber Security & Penetration Testing</li>
+                                <li>Data Analysis & Big Data Technologien</li>
+                                <li>Threat Intelligence</li>
+                                <li>Softwareentwicklung (Python, Java, C)</li>
+                                <li>KI-gestützte Sicherheitslösungen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Soft Skills & Competencies -->
+                <section class="section">
+                    <h2><i class="fas fa-star"></i> Kompetenzen & Soft Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-name"><i class="fas fa-users"></i> Teamfähigkeit</div>
+                            <p style="font-size: 0.9rem; color: #666; margin: 0;">Erfahrung in verschiedenen Projektteams</p>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name"><i class="fas fa-lightbulb"></i> Lösungsorientierte Arbeitsweise</div>
+                            <p style="font-size: 0.9rem; color: #666; margin: 0;">Systematische Problemanalyse und -lösung</p>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name"><i class="fas fa-comments"></i> Kommunikationsstärke</div>
+                            <p style="font-size: 0.9rem; color: #666; margin: 0;">Mehrsprachige Kundenkommunikation</p>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name
